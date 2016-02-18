@@ -303,7 +303,14 @@ namespace AWAdungeonsofDOOM
         {
 
             Console.WriteLine($"Do you want to pick up the {world[x, y].ItemInRoom.Name}? Y/N");
-            string answer = Console.ReadLine();
+            ConsoleKeyInfo keyInfo = Console.ReadKey();
+
+            string answer = "";
+            switch (keyInfo.Key)
+            {
+                case ConsoleKey.Y: answer = "Y"; break;
+                default: break;
+            }
             if (answer == "Y")
             {
                 player.BackPack.Add(world[x, y].ItemInRoom);
